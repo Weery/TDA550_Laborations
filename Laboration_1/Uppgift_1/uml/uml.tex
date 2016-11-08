@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{xstring}
+\usepackage{calc}
+\usepackage{pgfopts}
+\usepackage{tikz-uml}
+\usepackage{geometry}
+
+
+\begin{document}
+
+\begin{figure}[H]
+	\centering
+	\input{GoldModelInherit}
+	\caption{\label{fig:GoldModelInherit}}
+\end{figure}
+
+GameModel abstract class, definerar structuren för ett spel. 
+
+GoldModel är det faktiska guldsamlar spelet, och GoldModel ärver eller extendar GameModel.
+
+
+
+Gold coinsen ritas ut via tile.draw i paintcomponent i gameview. Tile är av grund klassen GameTile och mer specifict en roundtile som ärver gametile.
+
+GameFactory håller koll på vilka olika spel som finns implementerade och skapar sedan det speler som användaren har valt. För att Få med snake game får man lägga till "snake" som ett valbart spel getGameNames() så att guiView:n kan visa för användaren att spelet finns, och sedan skapa en SnakeModel som ärver från GameModel som sedan skapas i createGame i GameFactory givet att användaren har valt "snake" och inte "Gold".
+
+beräkning av Gold eaters nästa position sköts av GoldModel från dess gameUpdate() metod som kallar på getNextCollectorPos() vilken uppdaterar positionen. Sedan kollar gameUpdate om den nya positionen är "laglig" via isOutOfBounds().
+
+Ett spelbräde sparas som en twådimensionell array i GameModel.
+
+\newgeometry{left=0in,right=0in}
+
+\begin{figure}[H]
+	\centering
+	\input{SnakeModel}
+\end{figure}
+
+\restoregeometry
+
+ny text här
+
+\end{document}

@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+	\begin{umlpackage}{lab1}
+		\umlclass[x=0,y=0,type=abstract]{GameModel}{
+			- gameboardState : GameTile[\hphantom{0}][\hphantom{0}] \\
+			- gameboardSize : Dimension \\
+			}{
+			+ getGameboardState(pos : Position) : GameTile \\
+			+ getGameboardState(x : int, y : int) : GameTile \\
+			+ getGameboardSize() : jawa.awt.Dimension \\
+			+ \textit{gameUpdate(lastKey : int)}}
+		
+		\umlclass[x=0,y=-4]{GoldModel}{
+			}{
+			- gameUpdate(lastKey : int)}
+
+		\umlinherit[]{GoldModel}{GameModel}
+	\end{umlpackage}
+\end{tikzpicture}

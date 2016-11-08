@@ -1,0 +1,56 @@
+\begin{tikzpicture}
+	\begin{umlpackage}{lab1}
+		% All classes
+		\umlclass[x=4,y=0]{Main}{}{}
+		
+		\umlclass[x=4,y=-3]{GUIView}{}{}
+		\umlclass[x=0,y=-3]{Constants}{}{}			
+		
+		\umlclass[x=4,y=-6]{GameController}{}{}	
+		\umlclass[x=8,y=-6]{IGameFactory}{}{}
+		\umlclass[x=0,y=-8]{Position}{}{}
+		\umlclass[x=0,y=-10]{GameOverException}{}{}
+		
+		\umlclass[x=0,y=-6]{GameView}{}{}		
+				
+		\umlclass[x=8,y=-8]{GameFactory}{}{}
+		\umlclass[x=5,y=-10,type=abstract]{GameModel}{}{}
+		
+		\umlclass[x=3,y=-13]{SnakeModel}{}{}
+		
+		\umlclass[x=8,y=-13]{GameTile}{}{}
+		\umlclass[x=8,y=-16]{RectangularTile}{}{}
+		\umlclass[x=3,y=-16]{RoundTile}{}{}		
+		
+		\umlclass[x=0,y=-19]{SnakeHeadTile}{}{}
+		\umlclass[x=4,y=-19]{SnakeBodyTile}{}{}
+		\umlclass[x=8,y=-19]{FoodTile}{}{}
+		
+		
+		% Class Dependencies
+		\umlinherit[]{GUIView}{Main}
+		
+		\umlinherit[]{GameView}{GUIView}
+		\umlinherit[]{GameView}{Constants}
+		\umlinherit[]{GameController}{GUIView}
+		\umlinherit[]{IGameFactory}{GUIView}	
+		
+		\umlinherit[]{GameView}{GameController}
+		
+		\umlinherit[]{GameModel}{GameController}
+		\umlinherit[]{GameFactory}{IGameFactory}
+		\umlinherit[]{GameModel}{GameView}
+		\umlinherit[]{GameModel}{Position}	
+		\umlinherit[]{GameModel}{GameOverException}	
+		
+		\umlinherit[]{SnakeModel}{GameModel}
+		\umlinherit[]{GameTile}{GameModel}	
+		
+		\umlinherit[]{RoundTile}{GameTile}
+		\umlinherit[]{RectangularTile}{GameTile}
+		\umlinherit[]{SnakeHeadTile}{RoundTile}
+		\umlinherit[]{SnakeBodyTile}{RoundTile}
+		\umlinherit[]{FoodTile}{RoundTile}
+		
+	\end{umlpackage}	
+\end{tikzpicture}
