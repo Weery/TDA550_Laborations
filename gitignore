@@ -1,0 +1,4 @@
+
+# Ignore my local zipped files
+*.zip
+*.rar
