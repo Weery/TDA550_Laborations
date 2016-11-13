@@ -27,6 +27,9 @@ public class GameFactory implements IGameFactory {
 		if (gameName.equals("Gold")) {
 			return new GoldModel();
 		}
+		else if (gameName.equals("Snake")) {
+			return new SnakeModel();
+		}
 
 		throw new IllegalArgumentException("No such game: " + gameName);
 	}
